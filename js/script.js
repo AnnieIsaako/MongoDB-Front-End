@@ -4,19 +4,33 @@ $(document).ready(function() {
     type: 'GET',
     dataType: 'json',
     success: function (products) {
-      for (var i = 0; i < products.length; i++) {
+      products.map(function(products) {
         $('#listedItems').append(`
-          <li class="list-group-item">${products[i].name}
-          <div class="positionBtn">
-            <button class="btn btn-info" type="button">Edit</button>
-            <button class="btn btn-danger" type="button">Remove</button>
-          </div>
-        </li>
+          <li class="list-group-item">${products.name}
+            <div class="positionBtn">
+              <button class="btn btn-info" type="button">Edit</button>
+              <button class="btn btn-danger" type="button">Remove</button>
+            </div>
+          </li>
         `);
-      }
+      })
     },
     error: function (error) {
       console.log(error);
     }
   });
+
+  $('#add').click(function() {
+    event.preventDefault();
+    let productName = $('#productName').val();
+    let productPrice = $('#productPrice').val();
+    if (productName && productPrice) {
+      console.log(`Item: ${productName}, Price: $${productPrice}`);
+    } else {
+      console.log('please enter a value');
+    }
+    $('#productName').val('');
+    $('#productPrice').val('');
+  });
+
 });
