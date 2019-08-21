@@ -8,7 +8,8 @@ $(document).ready(function() {
         $('#listedItems').append(`
           <li class="list-group-item">${products[i].name}
           <div class="positionBtn">
-            <button class="btn btn-info" type="button">Edit</button><button class="btn btn-danger" type="button">Remove</button>
+            <button class="btn btn-info" type="button">Edit</button>
+            <button class="btn btn-danger" type="button">Remove</button>
           </div>
         </li>
         `);
