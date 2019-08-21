@@ -26,6 +26,21 @@ $(document).ready(function() {
     let productPrice = $('#productPrice').val();
     if (productName && productPrice) {
       console.log(`Item: ${productName}, Price: $${productPrice}`);
+      $.ajax({
+        url: 'http://192.168.33.10:3000/product',
+        type: 'POST',
+        data: { // obeject, specifies data that you are sending
+          name: productName,
+          price: productPrice
+        },
+        success: function(result) {
+          console.log(result);
+        },
+        error: function (error) {
+          console.log(error);
+          console.log('oh no, something went wrong :(');
+        }
+      })
     } else {
       console.log('please enter a value');
     }
