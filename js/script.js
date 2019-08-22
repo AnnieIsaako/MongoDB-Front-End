@@ -48,4 +48,30 @@ $(document).ready(function() {
     $('#productPrice').val('');
   });
 
+  $('#contactSubmit').click(function() {
+    event.preventDefault();
+    let fName = $('#fName').val();
+    let lName = $('#lName').val();
+    let email = $('#email').val();
+
+    if (fName && lName && email) {
+      $.ajax({
+        url: 'http://192.168.33.10:3000/contact',
+        type: 'POST',
+        data: {
+          fName: fName,
+          lName: lName,
+          email: email
+        },
+        success: function(contactDetails) {
+          console.log(contactDetails);
+        },
+        error: function(error) {
+          console.log(error);
+          console.log('Something is wrong with contact form');
+        }
+      })
+    }
+  });
+
 });

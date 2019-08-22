@@ -14,15 +14,42 @@
         <input id="productName" class="form-control" type="text" name="" value="">
 
         <p>Product Price</p>
-        <input id="productPrice" class="form-control" type="text" name="" value="">
+        <input id="productPrice" class="form-control" type="number" name="" value="">
         <br>
         <button id="add" class="btn btn-primary" type="submit" name="button">Add Product</button>
         <br>
-        <h2>All Products</h2>
+        <div class="content d-flex justify-space-between mt-5">
+          <div class="col-5">
+            <h2>Contact Us</h2>
+            <div class="mt-4 input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">First Name</span>
+              </div>
+              <input id="fName" class="form-control" type="text" name="" value="">
+            </div>
 
-        <ul id="listedItems" class="list-group">
+            <div class="mt-4 input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Last Name</span>
+              </div>
+              <input id="lName" class="form-control" type="text" name="" value="">
+            </div>
 
-        </ul>
+            <div class="mt-4 input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Email</span>
+              </div>
+              <input id="email" class="form-control" type="text" name="" value="">
+            </div>
+            <button id="contactSubmit" class="mt-4 btn btn-dark" type="submit" name="button">Send</button>
+
+          </div>
+
+          <ul id="listedItems" class="list-group col-7 mr-5">
+            <h2>All Products</h2>
+          </ul>
+
+        </div>
       </div>
 
 
