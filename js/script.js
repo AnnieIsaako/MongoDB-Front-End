@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $.ajax({
-    url: 'http://192.168.33.10:3000/allProducts',
+    url: 'http://localhost:3000/allProducts',
     type: 'GET',
     dataType: 'json',
     success: function (products) {
@@ -56,7 +56,7 @@ $(document).ready(function() {
 
     if (fName && lName && email) {
       $.ajax({
-        url: 'http://192.168.33.10:3000/contact',
+        url: 'http://localhost:3000/contact',
         type: 'POST',
         data: {
           fName: fName,
@@ -69,6 +69,34 @@ $(document).ready(function() {
         error: function(error) {
           console.log(error);
           console.log('Something is wrong with contact form');
+        }
+      })
+    }
+  });
+
+  $('#sendFeedback').click(function() {
+    event.preventDefault();
+    let shopName = $('#shopName').val();
+    let suburb = $('#suburb').val();
+    let postalCode = $('#postalCode').val();
+    let message = $('#message').val();
+
+    if (shopName && suburb && postalCode && message) {
+      $.ajax({
+        url: 'http://localhost:3000/contact',
+        type: 'POST',
+        data: {
+          shopName: shopName,
+          suburb: suburb,
+          postalCode: postalCode,
+          message: message
+        },
+        success: function(feedback) {
+          console.log(feedback);
+        },
+        error: function(error) {
+          console.log(error);
+          console.log('Something is wrong with feedback form');
         }
       })
     }
